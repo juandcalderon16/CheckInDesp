@@ -1,32 +1,28 @@
-name: Deploy to Vercel
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # Desplegar cuando haya un push en la rama principal
+      - main  # El despliegue se activará cuando haya un push en la rama 'main'
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out the code
+      - name: Check out the repo
         uses: actions/checkout@v2
 
-      - name: Install Node.js
-        uses: actions/setup-node@v2
+      - name: Set up JDK 17
+        uses: actions/setup-java@v1
         with:
-          node-version: '16'  # Cambia la versión según tu necesidad
+          java-version: '17'
 
-      - name: Install dependencies
-        run: npm install
+      - name: Build with Maven
+        run: mvn clean install
 
-      - name: Build project
-        run: npm run build  # Asegúrate de tener este script en tu package.json
-
-      - name: Deploy to Vercel
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: |
-          npm install -g vercel
-          vercel --prod --token=$VERCEL_TOKEN
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target/site  # Cambia esto al directorio que contiene los archivos a desplegar
