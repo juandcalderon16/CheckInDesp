@@ -2,14 +2,14 @@ type Query{
     listarPasajeros: [InfoPasajero],
     listarContactoEmergencia: [ContactoEmergencia],
     generateQRCode(text: String!): String,
-    consultarTarjetaEmbargue(idTarjetaEmbargue: Int!): TarjetaEmbargue
+    consultarTarjetaEmbarque(idTarjetaEmbarque: Int!): TarjetaEmbarque
 }
 
 type Mutation{
     guardarInfoPasajero(infoPasajero:InfoPasajeroRequest):InfoPasajero,
     guardarContactoEmergencia(contactoEmergencia:ContactoEmergenciaRequest):ContactoEmergencia,
     confirmarCheckIn(idPasajero: Int!): InfoPasajero,
-    crearTarjetaEmbargue(nombreCompleto: String!): TarjetaEmbargue
+    crearTarjetaEmbarque(nombreCompleto: String!): TarjetaEmbarque
 }
 
 
@@ -22,10 +22,9 @@ type InfoPasajero{
     checkIn: Boolean!
 }
 
-type TarjetaEmbargue{
-    idTarjetaEmbargue: Int,
+type TarjetaEmbarque{
+    idTarjetaEmbarque: Int,
     nombreCompleto: String,
-    HoraVuelo: String,
     qrUnico: String
 }
 

@@ -3,15 +3,13 @@ package com.fabrica.CheckIn.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Date;
-
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Builder
-public class TarjetaEmbargue {
+public class TarjetaEmbarque {
 
     @Id
     @GeneratedValue
