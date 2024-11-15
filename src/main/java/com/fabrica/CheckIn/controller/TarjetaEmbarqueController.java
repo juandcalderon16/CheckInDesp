@@ -41,8 +41,6 @@ public class TarjetaEmbarqueController {
     @QueryMapping
     public TarjetaEmbarque consultarTarjetaEmbarque(@Argument Long idTarjetaEmbarque) {
         return tarjetaEmbarqueRepository.findById(idTarjetaEmbarque)
-
-
                 .orElseThrow(() -> new RuntimeException("Tarjeta de embarque no encontrada con ID: " + idTarjetaEmbarque));
     }
 
