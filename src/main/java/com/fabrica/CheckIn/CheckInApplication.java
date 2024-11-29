@@ -17,4 +17,8 @@ public class CheckInApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CheckInApplication.class, args);
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 93fd61142d16f81751e03dcd920d9c7f5625659f
 }
