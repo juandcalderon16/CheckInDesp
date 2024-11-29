@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
   ports:
-    - "8025:8025" #puerto correspondiente
+    - "8025:8004"
   networks:
     - my_bridge_network
 networks:
