@@ -1,15 +1,16 @@
 name: check-in-proyecto-a
 services:
   springboot-app:
-  build:
-  context: .
-  dockerfile: Dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile
   ports:
-    - "8025:8004" #puerto correspondiente
+    - "8025:8025" #puerto correspondiente
   networks:
     - my_bridge_network
 networks:
   my_bridge_network:
   external: true
+
 
 
