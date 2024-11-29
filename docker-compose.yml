@@ -1,11 +1,15 @@
+name: check-in-proyecto-a
 services:
-  checkin:
-    build: .
-    image: checkin-app
-    ports:
-      - "8080:8080"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:h2:mem:CheckIn
-    volumes:
-      - ./target:/app/target
+  springboot-app:
+  build:
+  context: .
+  dockerfile: Dockerfile
+  ports:
+    - "8025:8004" #puerto correspondiente
+  networks:
+    - my_bridge_network
+networks:
+  my_bridge_network:
+  external: true
+
 
